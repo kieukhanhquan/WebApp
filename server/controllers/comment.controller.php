@@ -14,10 +14,21 @@
                 }
 
                 public function filterComment($db, $data) {
-                    $query = "SELECT client.FirstName, client.Avatar, comment.Content, comment.Time
-                    FROM comment
-                    INNER JOIN client ON comment.ClientID = client.ID
-                    WHERE comment.ProductID = ". $data . "";
+                    $query = "SELECT 
+                    (SELECT FirstName 
+                     FROM client 
+                     WHERE client.ID = comment.ClientID) AS FirstName,
+                    (SELECT Avatar 
+                     FROM client 
+                     WHERE client.ID = comment.ClientID) AS Avatar,
+                    comment.Content,
+                    comment.Time
+                FROM comment
+                WHERE comment.ProductID = ". $data . "";
+                    //  $query = "SELECT client.FirstName, client.Avatar, comment.Content, comment.Time
+                    //  FROM comment
+                    //  INNER JOIN client ON comment.ClientID = client.ID
+                    //  WHERE comment.ProductID = ". $data . "";
                     return $this->model->filterComment($db, $query);
                 }
 

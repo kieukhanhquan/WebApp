@@ -68,14 +68,14 @@ function CategoryProduct() {
         <div className="CategoryProduct" >
                 <div className="grid">
                     <div className="CategoryProduct-row">
-                        {/* <div className="grid__column-1667 m-2">
+                        <div className="grid__column-1667 m-2">
                             <nav className="category">
                                 <h3 className="category__heading">
                                     <i className="category__heading-icon fa-solid fa-list-ul"></i>
                                     Tất cả danh mục
                                 </h3>
                             </nav>
-                        </div> */}
+                        </div>
                         <div className="grid__column100">
                             <div className="home-filter">
                                 <span className="home-filter__label"> Sắp xếp theo</span>
